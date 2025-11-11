@@ -4,6 +4,7 @@ const FILES_TO_CACHE = [
   "./index.html",
   "./app.js",
   "./manifest.json",
+  "https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css",
   "https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js",
   "https://cdn.tailwindcss.com",
 ];
