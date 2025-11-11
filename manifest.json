@@ -1,7 +1,7 @@
 {
   "name": "Flashcards PWA",
   "short_name": "Flashcards",
-  "start_url": "/",
+  "start_url": "/Flash-Cards/index.html",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#1f2937",
