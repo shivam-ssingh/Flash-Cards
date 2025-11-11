@@ -1,0 +1,102 @@
+﻿Service,Quick Note
+IAM (Identity and Access Management),"Manage users, groups, roles, and permissions; enforce least privilege and secure access to AWS resources."
+EC2 (Elastic Compute Cloud),"Launch virtual servers (“instances”) in the cloud, providing scalable compute capacity."
+EBS (Elastic Block Store),Persistent block-level storage volumes for use with EC2 instances; data persists even after instance termination.
+EFS (Elastic File System),"Scalable, elastic, shared file storage for Linux instances, accessible across multiple AZs."
+Amazon FSx,"Family of fully-managed third-party file systems (e.g., Windows File Server, Lustre, NetApp ONTAP) for specialized workloads."
+ELB (Elastic Load Balancing),Distribute traffic across multiple EC2 instances (or containers); improves fault tolerance and scalability.
+ASG (Auto Scaling Group),Automatically adjusts the number of EC2 instances to handle variable workloads while minimizing cost.
+Amazon S3 (Simple Storage Service),"“Infinite” object storage; store and retrieve large amounts of data, with multiple storage classes for different use cases."
+"Snow Family (Snowball, Snowcone, Snowmobile)","Physical devices for data migration (petabyte-scale) and edge computing when network transfer is slow, limited, or offline."
+AWS Storage Gateway,"Hybrid storage service bridging on-premises data and the AWS cloud; provides file, volume, or tape-based integration with S3."
+Amazon RDS (Relational Database Service),"Managed relational database service (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server) with automatic patching, backups, and scaling options."
+Amazon Aurora,"High-performance, highly scalable, and fully managed relational database compatible with MySQL and PostgreSQL; offers better throughput than standard RDS engines."
+Amazon ElastiCache,Managed in-memory data stores (Redis or Memcached) to boost performance by caching frequently accessed data.
+Amazon DynamoDB,"Fully managed, serverless NoSQL key-value database; scales to massive workloads with high performance."
+Amazon Redshift,"Managed, petabyte-scale data warehouse solution for online analytical processing (OLAP)."
+Amazon EMR (Elastic MapReduce),"Managed big data framework (Hadoop, Spark, etc.) to process vast amounts of data quickly at scale on EC2 clusters."
+Amazon Athena,Serverless service to run SQL queries on data stored in S3; pay only for scanned data.
+Amazon QuickSight,"Business intelligence (BI) service for building interactive dashboards and visualizations, powered by serverless architecture."
+Amazon DocumentDB,"Managed, scalable document database compatible with MongoDB; stores JSON-like documents."
+Amazon Neptune,"Managed, highly available graph database, ideal for applications working with heavily interconnected data (e.g., social networks)."
+Amazon Timestream,Serverless time-series database for IoT or operational data; designed for efficient real-time and historical data analysis.
+Amazon QLDB (Quantum Ledger DB),"Immutable, cryptographically verifiable ledger service for tracking changes in data over time, often used for financial transactions."
+Amazon Managed Blockchain,"Managed service to create and manage scalable blockchain networks, supporting Ethereum or Hyperledger Fabric."
+AWS Glue,"Serverless data integration (ETL) service to discover, prepare, combine, and move data for analytics."
+DMS (Database Migration Service),Migrates databases (homogeneous or heterogeneous) to AWS with minimal downtime; supports continuous replication.
+ECS (Elastic Container Service),Orchestrate and run Docker containers on a cluster of EC2 instances or on AWS Fargate.
+Fargate,Serverless compute engine for containers; run Docker containers without managing EC2 instances.
+ECR (Elastic Container Registry),Private container image registry for storing Docker images; integrated with ECS and Fargate.
+EKS (Elastic Kubernetes Service),Managed Kubernetes control plane to run containerized applications using Kubernetes on AWS.
+AWS Lambda,Serverless Function as a Service (FaaS) platform for running code on-demand without managing servers; scales automatically.
+Amazon API Gateway,"Managed service for creating, publishing, and managing REST or WebSocket APIs; can front AWS Lambda or other back ends."
+AWS Batch,Fully managed batch processing service that can dynamically launch compute resources for batch jobs.
+Amazon Lightsail,"Simplified compute, networking, and storage aimed at small applications, websites, and dev/test environments with predictable monthly pricing."
+CloudFormation,Infrastructure as code; model and provision AWS resources using JSON/YAML templates.
+CodeDeploy,"Automate code deployments to EC2 instances, on-prem servers, or Lambda; manages rolling updates and rollback."
+Systems Manager (SSM),"Unified interface to view operational data from multiple AWS services; run commands, patch fleets, store parameters, and automate tasks at scale."
+CodeCommit,"(Legacy service, now deprecated for new customers) Hosted Git-based repositories for private source control in AWS."
+CodeBuild,"Managed build service to compile source code, run tests, and produce deployable artifacts."
+CodePipeline,Continuous integration & continuous delivery (CI/CD) orchestration service to automate code release pipelines.
+CodeArtifact,"Secure, scalable artifact management (package repository) for Maven, Gradle, npm, Python, NuGet, etc."
+AWS CDK (Cloud Development Kit),"Define AWS infrastructure in familiar programming languages (TypeScript, Python, etc.); outputs CloudFormation templates."
+CloudWatch,"Monitoring service for AWS; collects metrics, logs, alarms, events, and more for resources and applications."
+CloudTrail,Records API calls and account activity across AWS; used for auditing changes and detecting unauthorized access.
+X-Ray,"Traces and visualizes requests in distributed applications, helping pinpoint performance issues and bottlenecks."
+CodeGuru,ML-powered service providing automated code reviews (Reviewer) and application performance analysis (Profiler).
+AWS Health Dashboard (Service Health),"Shows overall AWS service status (by region), historical service uptime, and outages."
+AWS Account Health Dashboard (Personal Health),Personalized view of events and scheduled activities that affect your specific AWS resources.
+AWS Outposts,Brings AWS services into your own data center with fully managed “Outposts Racks;” ideal for hybrid requirements and low-latency edge use cases.
+AWS Wavelength,Places AWS compute/storage inside telecom providers’ 5G networks for ultra-low-latency applications.
+AWS Local Zones,Run select AWS services close to large population centers for lower latency (subset of region resources in a “local zone”).
+Amazon Route 53,"Highly available and scalable DNS web service; can route traffic based on latency, geolocation, etc."
+Amazon CloudFront,Global content delivery network (CDN) caching content at Edge Locations for low-latency delivery.
+AWS Global Accelerator,Improves application availability and performance by routing traffic through the AWS global network; provides static IP addresses.
+S3 Transfer Acceleration,Speeds up uploads/downloads to/from S3 by routing data through AWS Edge Locations.
+VPC (Virtual Private Cloud),"Isolated, virtual network for AWS resources; define subnets, route tables, and gateways for controlling traffic."
+Subnets,Logical partitions in a VPC; each subnet resides in a single Availability Zone (public or private).
+Internet Gateway (IGW),Allows resources in public subnets to access the public internet (and vice versa).
+NAT Gateway,Provides outbound internet access for instances in private subnets while keeping them inaccessible from the internet.
+Security Groups,Stateful firewalls at instance-level that allow inbound/ outbound rules; no “deny” rules.
+Network ACL (NACL),Subnet-level stateless firewall allowing/denying specific IP traffic in and out.
+VPC Flow Logs,Capture and log all IP traffic in VPC or subnets for auditing and troubleshooting.
+VPC Peering,Directly connect two VPCs privately through AWS internal network; not transitive.
+VPC Endpoints,Privately connect to AWS services without using an IGW or NAT; traffic stays within AWS.
+Site-to-Site VPN,Encrypt traffic between on-prem data centers and AWS; uses public internet.
+AWS Direct Connect,"Dedicated, private, high-speed link from on-prem to AWS data centers; bypasses public internet."
+Transit Gateway,"Central hub to interconnect thousands of VPCs and on-prem networks, simplifying complex networking."
+AWS Shield,DDoS protection service at Layer 3/4; Standard is free; Advanced includes 24/7 support and cost protection.
+AWS WAF (Web Application Firewall),"Layer 7 firewall; define custom rules to block/allow traffic to ALB, API Gateway, or CloudFront."
+AWS Network Firewall,"Protect VPCs at scale with advanced network traffic filtering (stateful inspection, intrusion detection, etc.)."
+AWS Firewall Manager,"Centrally configure and manage firewall rules across accounts and resources (WAF, Shield Advanced, etc.) in an Organization."
+AWS KMS (Key Management Service),"Create, store, and manage cryptographic keys used for encryption across AWS services."
+AWS CloudHSM,"Dedicated, hardware-based security module where you control keys entirely (FIPS 140-2 Level 3)."
+AWS Certificate Manager (ACM),"Provision, manage, and deploy TLS/SSL certificates on AWS resources (e.g. ALB, CloudFront); free for public certificates."
+AWS Secrets Manager,"Rotate, manage, and retrieve database/app secrets (usernames, passwords, etc.) with built-in rotation for some RDS engines."
+AWS Artifact,"Central resource for compliance-related information, security and compliance documents (SOC, PCI, ISO reports)."
+Amazon GuardDuty,"ML-powered threat detection service to identify unauthorized or malicious activity via logs (VPC Flow Logs, DNS Logs, CloudTrail)."
+Amazon Inspector,"Automated security assessment service scanning for vulnerabilities or network exposure on EC2 instances, ECR container images, and Lambda functions."
+AWS Config,Track and audit configuration changes in AWS resources; evaluate compliance against desired configurations.
+Amazon Macie,Discover and protect sensitive data in S3 (e.g. PII); uses ML-based pattern matching.
+AWS Security Hub,"Centralized security view, aggregates alerts (“findings”) from multiple services (GuardDuty, Inspector, Macie, etc.)."
+Amazon Detective,"Analyze, investigate, and quickly identify root causes of security issues or suspicious activities using machine learning."
+IAM Access Analyzer,"Identifies resources in your account (e.g., S3 buckets, IAM roles) that are shared externally; ensures no unintended external access."
+Amazon Firehose (Kinesis Data Firehose),"Captures streaming data and delivers it automatically to storage or analytics endpoints such as S3, Redshift, and OpenSearch."
+Amazon SQS (Simple Queue Service),"Managed message queue for decoupling or buffering tasks between microservices, distributed systems, and serverless apps."
+Amazon SNS (Simple Notification Service),"Publish-subscribe messaging; push messages to multiple subscribers (SQS, Lambda, HTTP endpoints, email, SMS)."
+Amazon MQ,"Managed message broker (ActiveMQ, RabbitMQ) to migrate existing on-prem or open-protocol workloads that rely on standard messaging APIs."
+Amazon Rekognition,"ML-powered image/video recognition; detect objects, faces, text, moderation, etc."
+Amazon Transcribe,Converts audio to text using automatic speech recognition (ASR).
+Amazon Polly,Text-to-speech service that turns text into lifelike spoken audio.
+Amazon Translate,Machine translation service for translating large amounts of text among numerous supported languages.
+Amazon Lex,Build conversational interfaces (chatbots) with voice and text powered by same technology as Alexa.
+Amazon Connect,"Managed cloud contact center solution with AI features (Lex integration) for routing, analytics, call flows."
+Amazon Comprehend,"NLP service to identify text language, sentiment, key phrases, and topics from documents or text data."
+Amazon SageMaker,"Fully managed platform for data scientists and developers to build, train, and deploy ML models at scale."
+Amazon Kendra,ML-powered enterprise search; lets you index and search across various document repositories.
+Amazon Personalize,Real-time personalization and recommendation service using machine learning (similar technology to Amazon.com’s personalization).
+Amazon Textract,Extracts text and data (including from forms/tables) from scanned documents using machine learning.
+AWS Organizations,"Manage multiple AWS accounts (centralized billing, consolidated usage, service control policies, etc.)."
+AWS Control Tower,"Simplifies setting up and governing multi-account environments; automates best-practices creation of accounts, guardrails, etc."
+AWS Resource Access Manager (RAM),"Securely share AWS resources (e.g., Subnets, Transit Gateways, Aurora DB) with other AWS accounts or Organization OUs."
+AWS Service Catalog,Create catalogs of approved products (CloudFormation-based) so end-users can self-provision in a compliant/consistent way.

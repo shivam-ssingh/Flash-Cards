@@ -1,0 +1,135 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcards PWA</title>
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 min-h-screen flex flex-col items-center p-4"
+  >
+    <h1 class="text-3xl font-bold mb-4">Flashcards PWA</h1>
+
+    <!-- Home / Upload Section -->
+    <div id="homeView" class="w-full max-w-2xl">
+      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+        <h2 class="text-xl font-semibold mb-2">Upload Flashcard Set</h2>
+        <input
+          type="file"
+          id="fileInput"
+          accept=".csv"
+          class="border p-2 rounded w-full mb-2"
+        />
+        <div id="columnSelectors" class="hidden space-y-2">
+          <select id="frontColumn" class="border p-2 rounded w-full"></select>
+          <select id="backColumn" class="border p-2 rounded w-full"></select>
+        </div>
+        <input
+          type="text"
+          id="setName"
+          placeholder="Enter set name (e.g., AWS Basics)"
+          class="border p-2 rounded w-full mt-2"
+        />
+        <div class="flex gap-2 mt-2">
+          <button
+            id="previewBtn"
+            class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
+          >
+            Preview
+          </button>
+          <button
+            id="saveSetBtn"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Save Flashcard Set
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-xl font-semibold mb-2">Saved Sets</h2>
+        <select id="savedSets" class="border p-2 rounded w-full mb-2"></select>
+        <div class="flex gap-2">
+          <button
+            id="loadSetBtn"
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            Load Set
+          </button>
+          <button
+            id="deleteSetBtn"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          >
+            Delete Set
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flashcard Player Section -->
+    <div id="playerView" class="hidden w-full max-w-2xl">
+      <div class="bg-white shadow-md rounded-lg p-6 text-center">
+        <div
+          id="card"
+          class="border p-8 rounded-lg text-lg cursor-pointer select-none min-h-[150px] flex items-center justify-center"
+        >
+          Click to flip
+        </div>
+        <div class="flex justify-between mt-4">
+          <button
+            id="prevBtn"
+            class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
+          >
+            Prev
+          </button>
+          <button
+            id="flipBtn"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Flip
+          </button>
+          <button
+            id="nextBtn"
+            class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
+          >
+            Next
+          </button>
+        </div>
+        <div class="flex justify-between mt-4">
+          <button
+            id="shuffleBtn"
+            class="bg-yellow-400 px-4 py-2 rounded hover:bg-yellow-500"
+          >
+            Shuffle
+          </button>
+          <button
+            id="markKnownBtn"
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            Mark Known
+          </button>
+          <button
+            id="resetProgressBtn"
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          >
+            Reset Progress
+          </button>
+        </div>
+        <div class="mt-6">
+          <button
+            id="exitPlayer"
+            class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+          >
+            Back to Sets
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
