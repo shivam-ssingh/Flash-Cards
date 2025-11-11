@@ -7,7 +7,7 @@
   "theme_color": "#1f2937",
   "icons": [
     {
-      "src": "/assets/icons/icon-flash-card.png",
+      "src": "assets/icons/icon-flash-card.png",
       "sizes": "192x192",
       "type": "image/png"
     }
