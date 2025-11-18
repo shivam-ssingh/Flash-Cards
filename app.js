@@ -69,6 +69,10 @@
       encoding: "UTF-8", //iphone
       header: true,
       skipEmptyLines: true,
+      beforeFirstChunk(chunk) {
+        // Remove BOM for iPhone
+        return chunk.replace(/^\uFEFF/, "");
+      },
       complete: function (results) {
         const fields = results.meta.fields;
         if (!fields || fields.length < 2) {
@@ -131,6 +135,16 @@
     flipped = false;
     showCard();
     showPlayer();
+  });
+
+  deleteSetBtn.addEventListener("click", () => {
+    const setId = savedSetsSelect.value;
+    const sets = loadAllSets();
+    currentSet = sets.find((s) => s.id === id);
+    const updated = sets.filter((s) => s.id !== setId);
+
+    saveAllSets(updated);
+    refreshSavedSets();
   });
 
   notesSetBtn.addEventListener("click", () => {
