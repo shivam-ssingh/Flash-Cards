@@ -69,6 +69,7 @@
       encoding: "UTF-8", //iphone
       header: true,
       skipEmptyLines: true,
+      worker: false,
       beforeFirstChunk(chunk) {
         // Remove BOM for iPhone
         return chunk.replace(/^\uFEFF/, "");
@@ -103,7 +104,11 @@
     if (!name) return alert("Enter a name for the set");
     const notesUrl = notesUrlInput.value.trim();
     const sets = loadAllSets();
-    const cards = parsedCards();
+    // const cards = parsedCards();
+    const cards = lastParsedRows.map((row) => ({
+      front: row[frontSelect.value] || "",
+      back: row[backSelect.value] || "",
+    }));
     const id = "set_" + Date.now();
     const newSet = {
       id,
