@@ -20,7 +20,7 @@
   const resetProgressBtn = document.getElementById("resetProgressBtn");
   const exitPlayerBtn = document.getElementById("exitPlayer");
   const notesUrlInput = document.getElementById("notesUrl");
-
+  let lastParsedRows = [];
   const homeView = document.getElementById("homeView");
   const playerView = document.getElementById("playerView");
 
@@ -80,6 +80,7 @@
           alert("CSV must have at least two columns.");
           return;
         }
+        lastParsedRows = results.data;
         columnSelectors.classList.remove("hidden");
         frontSelect.innerHTML = "";
         backSelect.innerHTML = "";
@@ -145,7 +146,6 @@
   deleteSetBtn.addEventListener("click", () => {
     const setId = savedSetsSelect.value;
     const sets = loadAllSets();
-    currentSet = sets.find((s) => s.id === id);
     const updated = sets.filter((s) => s.id !== setId);
 
     saveAllSets(updated);
