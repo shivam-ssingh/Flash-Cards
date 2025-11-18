@@ -66,6 +66,7 @@
     const file = e.target.files[0];
     if (!file) return;
     Papa.parse(file, {
+      encoding: "UTF-8", //iphone
       header: true,
       skipEmptyLines: true,
       complete: function (results) {
