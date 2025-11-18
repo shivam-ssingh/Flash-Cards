@@ -10,6 +10,7 @@
   const savedSetsSelect = document.getElementById("savedSets");
   const loadSetBtn = document.getElementById("loadSetBtn");
   const deleteSetBtn = document.getElementById("deleteSetBtn");
+  const notesSetBtn = document.getElementById("notesSetBtn");
   const cardEl = document.getElementById("card");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
@@ -18,6 +19,7 @@
   const markKnownBtn = document.getElementById("markKnownBtn");
   const resetProgressBtn = document.getElementById("resetProgressBtn");
   const exitPlayerBtn = document.getElementById("exitPlayer");
+  const notesUrlInput = document.getElementById("notesUrl");
 
   const homeView = document.getElementById("homeView");
   const playerView = document.getElementById("playerView");
@@ -94,6 +96,7 @@
   saveSetBtn.addEventListener("click", () => {
     const name = setNameInput.value.trim();
     if (!name) return alert("Enter a name for the set");
+    const notesUrl = notesUrlInput.value.trim();
     const sets = loadAllSets();
     const cards = parsedCards();
     const id = "set_" + Date.now();
@@ -101,6 +104,7 @@
       id,
       name,
       cards,
+      notesUrl: notesUrl || null,
       frontKey: frontSelect.value,
       backKey: backSelect.value,
     };
@@ -128,6 +132,15 @@
     showPlayer();
   });
 
+  notesSetBtn.addEventListener("click", () => {
+    const id = savedSetsSelect.value;
+    if (!id) return alert("Select a set first");
+    const sets = loadAllSets();
+    const set = sets.find((s) => s.id === id);
+    if (!set || !set.notesUrl) return alert("No notes attached to this set.");
+    // Redirect to notes page
+    window.location.href = `notes.html?set=${encodeURIComponent(id)}`;
+  });
   function showCard() {
     if (!currentSet || !currentSet.cards.length) {
       cardEl.textContent = "No cards in this set.";
@@ -160,7 +173,12 @@
     flipped = false;
     showCard();
   });
-
+  window.openNotes = function (setId) {
+    const sets = loadAllSets();
+    const found = sets.find((s) => s.id === setId);
+    if (!found || !found.notesUrl) return alert("This set has no notes.");
+    window.location.href = `notes.html?set=${encodeURIComponent(setId)}`;
+  };
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register("./service-worker.js")
